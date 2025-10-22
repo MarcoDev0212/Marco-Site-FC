@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CONFLITO FC - O clube elite de Pro Clubs. Junte-se à nossa equipe e conquiste títulos!">
+    <meta name="keywords" content="Pro Clubs, futebol virtual, CONFLITO FC, recrutamento, esports">
+    <meta name="author" content="CONFLITO FC">
+    <title>🏆 Conflito FC</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/soccer-ball.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <style>
+        /* Variáveis e Reset CSS */
+        :root {
+            --primary: #0f172a;
+            --secondary: #e11d48;
+            --accent: #facc15;
+            --neutral-900: #0f172a;
+            --neutral-800: #1e293b;
+            --neutral-700: #334155;
+            --neutral-600: #475569;
+            --neutral-500: #64748b;
+            --neutral-400: #94a3b8;
+            --neutral-300: #d1d5db;
+            --neutral-200: #e5e7eb;
+            --neutral-100: #f3f4f6;
+            --neutral-50: #f9fafb;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--neutral-800) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, #be123c 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #eab308 100%);
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --container-max: 1400px;
+            --section-padding: 4rem 0;
+            --element-gap: 1.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            background: var(--neutral-900);
+            color: var(--neutral-900);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--neutral-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            transition: opacity 0.5s ease;
+        }
+        .preloader.hidden { opacity: 0; pointer-events: none; }
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--neutral-300);
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Animações */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes cardPop { 
+            from { opacity: 0; transform: translateY(20px) scale(0.95); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
+        }
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(225, 29, 72, 0.6); }
+        }
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        @keyframes positionSlide {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes instagramSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+        .animate-pulse { animation: pulse 2s infinite; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-cardPop { animation: cardPop 0.6s ease-out forwards; }
+        .animate-textGlow { animation: textGlow 2s ease-in-out infinite; }
+        .animate-numberPulse { animation: numberPulse 1.5s ease-in-out infinite; }
+        .animate-positionSlide { animation: positionSlide 0.8s ease-out forwards; }
+        .animate-instagramSpin { animation: instagramSpin 3s ease-in-out infinite; }
+        /* Utilitários */
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 1rem; }
+        .section {
+            position: relative;
+            padding: var(--section-padding);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+            border-radius: 0.5rem;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        .section.active { opacity: 1; transform: translateY(0); }
+        .section-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
+        .section:hover .section-video { filter: brightness(0.8); }
+        .section-content {
+            position: relative;
+            z-index: 2;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--white);
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-align: center;
+            color: var(--neutral-200);
+            margin-bottom: 2rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            line-height: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before { left: 100%; }
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-primary:hover, .btn-primary:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        .btn-secondary {
+            background: var(--gradient-accent);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-secondary:hover, .btn-secondary:focus {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--neutral-900);
+            border: 2px solid var(--neutral-300);
+        }
+        .btn-outline:hover, .btn-outline:focus {
+            background: var(--neutral-900);
+            color: var(--white);
+            border-color: var(--neutral-900);
+        }
+        /* Header e Navegação */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .header.scrolled {
+            background: rgba(15, 23, 42, 0.98);
+            box-shadow: var(--shadow-lg);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--neutral-100);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .logo:hover, .logo:focus { transform: scale(1.05); }
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 1.75rem;
+            animation: pulse 2s infinite;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        .nav-link {
+            position: relative;
+            color: var(--neutral-400);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 1rem;
+        }
+        .nav-link:hover, .nav-link:focus {
+            color: var(--neutral-100);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .nav-link.active {
+            color: var(--secondary);
+            background: rgba(225, 29, 72, 0.1);
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--neutral-400);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .mobile-menu-btn:hover, .mobile-menu-btn:focus { color: var(--neutral-100); }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--gradient-primary);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            animation: fadeInUp 1s ease-out;
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            max-width: 80%;
+            margin: 0 auto 2.5rem;
+            opacity: 0.85;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        .hero-stat {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-stat:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-xl);
+        }
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        /* Menu Banner */
+        .menu-banner {
+            position: relative;
+            width: 100%;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-2xl);
+        }
+        .banner-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .menu-banner:hover .banner-image {
+            transform: scale(1.05);
+        }
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .banner-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+        }
+        .banner-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .banner-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+        }
+        .banner-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        /* Clube Section */
+        .clube-section { background: var(--gradient-primary); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 3.5rem;
+        }
+        .about-content h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--white);
+        }
+        .about-content p {
+            font-size: 1rem;
+            color: var(--neutral-200);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+        .about-image {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .about-image:hover img { transform: scale(1.1); }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--neutral-200);
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        /* Títulos Section */
+        .titulos-horizontal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .titulo-card {
+            flex: 1 1 45%;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid var(--neutral-200);
+            position: relative;
+            opacity: 0;
+        }
+        .titulo-card.active {
+            opacity: 1;
+            animation: cardPop 0.6s ease-out forwards;
+        }
+        .titulo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .titulo-card:hover::before { transform: scaleX(1); }
+        .titulo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+        }
+        .titulo-header {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        .titulo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        .titulo-card:hover .titulo-image {
+            transform: scale(1.1);
+        }
+        .titulo-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .titulo-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: 0.5rem;
+        }
+        .titulo-year {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .titulo-description {
+            color: var(--neutral-600);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+        /* Elenco Section - MODIFICADA */
+        .elenco-section { 
+            background: var(--gradient-primary); 
+            padding: 4rem 0;
+        }
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .player-card-simple {
+            background: rgba(243, 242, 242, 0.95);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid var(--neutral-200);
+            position: relative;
+            opacity: 0;
+        }
+        .player-card-simple.active {
+            opacity: 1;
+            animation: cardPop 0.6s ease-out forwards;
+        }
+        .player-card-simple::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .player-card-simple:hover::before { transform: scaleX(1); }
+        .player-card-simple:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+        }
+        .player-image-simple {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        .player-card-simple:hover .player-image-simple {
+            transform: scale(1.1);
+        }
+        .player-info-simple {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .player-name-simple {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: 1rem;
+        }
+        .instagram-link-simple {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--neutral-100);
+            color: var(--neutral-700);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+            animation: instagramSpin 3s ease-in-out infinite;
+        }
+        .instagram-link-simple:hover, .instagram-link-simple:focus {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: var(--white);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--shadow-md);
+            animation: none;
+        }
+        /* Redes Section */
+        .redes-section { background: var(--gradient-primary); }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .social-card {
+            background: var(--white);
+            padding: 2.5rem 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--neutral-200);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .social-card:hover::before { transform: scaleX(1); }
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+        }
+        .social-card.discord::before { background: linear-gradient(90deg, #5865f2, #7289da); }
+        .social-card.twitch::before { background: linear-gradient(90deg, #9146ff, #6441a5); }
+        .social-card.instagram::before { background: linear-gradient(90deg, #e4405f, #c13584, #833ab4); }
+        .social-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        .social-card:hover .social-icon { transform: scale(1.2) rotate(5deg); }
+        .social-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: 1rem;
+        }
+        .social-description {
+            color: var(--neutral-600);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        /* Footer */
+        .footer {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--neutral-300);
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        .footer-content { max-width: var(--container-max); margin: 0 auto; padding: 0 1rem; }
+        .footer p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .footer-heart { color: var(--secondary); animation: pulse 2s infinite; }
+        /* Modal e Formulário */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-2xl);
+            max-width: 600px;
+            position: relative;
+            animation: scaleIn 0.3s ease-out;
+        }
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            text-align: center;
+        }
+        .modal-subtitle {
+            text-align: center;
+            color: var(--neutral-600);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .close-btn {
+            color: var(--neutral-500);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: var(--transition);
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .close-btn:hover, .close-btn:focus {
+            color: var(--neutral-900);
+            transform: scale(1.1);
+        }
+        .form-group { margin-bottom: 1.5rem; position: relative; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--neutral-800);
+            font-size: 0.95rem;
+        }
+        .form-group input[type="text"], .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--neutral-300);
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            background: var(--neutral-50);
+            transition: var(--transition);
+        }
+        .form-group input[type="text"]:focus, .form-group select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+            outline: none;
+            background: var(--white);
+        }
+        .form-group input.error, .form-group select.error {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+        }
+        .form-error {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: -1.25rem;
+            left: 0;
+            display: none;
+        }
+        .form-group input.error ~ .form-error, .form-group select.error ~ .form-error {
+            display: block;
+        }
+        .btn-submit {
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        .whatsapp-disclaimer {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--neutral-500);
+            text-align: center;
+        }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 900;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsividade (Ajuste para telas menores) */
+        @media (max-width: 992px) {
+            .nav-menu { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-menu.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                padding: 1rem 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: var(--shadow-lg);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-menu.active { max-height: 500px; } /* Ajuste de altura máxima para acomodar o menu */
+            .nav-link { 
+                width: 100%; 
+                justify-content: center; 
+                padding: 0.75rem 1rem; 
+                border-radius: 0;
+            }
+            .nav-link.active::after { bottom: 0; }
+            
+            .hero { padding-top: 5rem; }
+            .hero-title { border-right: none; white-space: normal; overflow: visible; }
+            .hero-buttons { flex-direction: column; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; } /* Imagem primeiro no mobile */
+            
+            .players-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <i class="fas fa-trophy logo-icon"></i>
+                <span>Conflito FC</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#clube" class="nav-link"><i class="fas fa-shield-alt"></i> O Clube</a></li>
+                    <li><a href="#titulos" class="nav-link"><i class="fas fa-trophy"></i> Títulos</a></li>
+                    <li><a href="#elenco" class="nav-link"><i class="fas fa-users"></i> Elenco</a></li>
+                    <li><a href="#redes" class="nav-link"><i class="fas fa-share-alt"></i> Redes</a></li>
+                    <li><a href="#" class="btn btn-secondary open-modal" data-modal="recrutamento-modal"><i class="fas fa-running"></i> Recrutar</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <video autoplay loop muted class="section-video" poster="placeholder.jpg">
+                <source src="video-bg.mp4" type="video/mp4"> 
+                <p>Seu navegador não suporta vídeos HTML5.</p>
+            </video>
+            <div class="hero-content">
+                <h1 class="hero-title"><span id="typed-text"></span></h1>
+                <p class="hero-subtitle">Conquiste o topo. Domine o campo virtual.</p>
+                <p class="hero-description">O Conflito FC é o time de elite do cenário Pro Clubs, focado em alta performance e competitividade. Se você busca excelência e títulos, seu lugar é aqui.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary open-modal" data-modal="recrutamento-modal"><i class="fas fa-fist-raised"></i> Junte-se à Elite</a>
+                    <a href="#titulos" class="btn btn-secondary"><i class="fas fa-star"></i> Nossos Títulos</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat animate-fadeInUp">
+                        <div class="hero-stat-number" data-count="15">0</div>
+                        <div class="hero-stat-label">Jogadores Ativos</div>
+                    </div>
+                    <div class="hero-stat animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="hero-stat-number" data-count="8">0</div>
+                        <div class="hero-stat-label">Títulos Conquistados</div>
+                    </div>
+                    <div class="hero-stat animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="hero-stat-number" data-count="90">0%</div>
+                        <div class="hero-stat-label">Taxa de Vitórias (Est.)</div>
+                    </div>
+                    <div class="hero-stat animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="hero-stat-number" data-count="120">0</div>
+                        <div class="hero-stat-label">Partidas Vencidas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Banner -->
+        <div class="container">
+            <div class="menu-banner">
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Banner Conflito FC" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h2 class="banner-title">Junte-se à Elite</h2>
+                        <p class="banner-subtitle">Faça parte do time mais competitivo do Pro Clubs</p>
+                        <a href="#" class="banner-cta open-modal" data-modal="recrutamento-modal">
+                            <i class="fas fa-fist-raised"></i> Inscreva-se Agora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="clube" class="section clube-section">
+            <div class="container section-content">
+                <h2 class="section-title animate-fadeIn">⚽ O DNA CONFLITO FC</h2>
+                <p class="section-subtitle animate-fadeIn" style="animation-delay: 0.1s;">Paixão, disciplina e a busca incessante pela perfeição.</p>
+                
+                <div class="about-grid">
+                    <div class="about-content animate-slideInLeft">
+                        <h3>O Que Nos Define</h3>
+                        <p>O **CONFLITO FC** não é apenas um time, é uma filosofia de jogo. Nascemos com o objetivo de dominar o cenário de Pro Clubs, priorizando a tática, a comunicação impecável e a sinergia entre os jogadores. Nossos membros são selecionados a dedo, não apenas pela habilidade, mas pela mentalidade vencedora e comprometimento.</p>
+                        <p>Somos uma comunidade unida, focada em aprimoramento contínuo. Acreditamos que a vitória é a consequência de um trabalho árduo, planejamento estratégico e, acima de tudo, o respeito mútuo dentro e fora de campo.</p>
+                        <a href="#redes" class="btn btn-primary"><i class="fas fa-handshake"></i> Fale Conosco</a>
+                    </div>
+                    <div class="about-image animate-scaleIn">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1293&q=80" alt="Equipe de Pro Clubs em ambiente de elite" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="titulos" class="section" style="background: var(--neutral-800);">
+            <div class="container section-content">
+                <h2 class="section-title animate-fadeIn">🏆 Mural da Glória: Nossos Títulos</h2>
+                <p class="section-subtitle animate-fadeIn" style="animation-delay: 0.1s;">Cada troféu é um testemunho da nossa dedicação e domínio.</p>
+
+                <div class="titulos-horizontal">
+                    <div class="titulo-card active" style="animation-delay: 0.2s;">
+                        <div class="titulo-header">
+                            <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Troféu da Liga Nacional" class="titulo-image">
+                        </div>
+                        <div class="titulo-info">
+                            <h4 class="titulo-name">Liga Nacional Pro</h4>
+                            <p class="titulo-year"><i class="fas fa-calendar-alt"></i> Temporada 2024 - Série A</p>
+                            <p class="titulo-description">Vitória esmagadora na principal liga do cenário. O ápice da excelência tática e individual.</p>
+                        </div>
+                    </div>
+                    <div class="titulo-card active" style="animation-delay: 0.4s;">
+                        <div class="titulo-header">
+                            <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Troféu da Copa Elite" class="titulo-image">
+                        </div>
+                        <div class="titulo-info">
+                            <h4 class="titulo-name">Copa Elite Virtual</h4>
+                            <p class="titulo-year"><i class="fas fa-calendar-alt"></i> Edição de Verão 2024</p>
+                            <p class="titulo-description">Um torneio de mata-mata intenso, onde a frieza e a precisão foram cruciais para a conquista.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Elenco MODIFICADA -->
+        <section id="elenco" class="section elenco-section">
+            <div class="container section-content">
+                <h2 class="section-title animate-fadeIn">⭐ Nossos Atletas Virtuais</h2>
+                <p class="section-subtitle animate-fadeIn" style="animation-delay: 0.1s;">Conheça os talentos que transformam o campo em um palco de vitórias.</p>
+
+                <div class="players-grid">
+                    <!-- Jogador 1 -->
+                    <div class="player-card-simple active" style="animation-delay: 0.2s;">
+                        <img src="" alt="Player_01" class="player-image-simple">
+                        <div class="player-info-simple">
+                            <h4 class="player-name-simple">Player_01</h4>
+                            <a href="https://www.instagram.com/player_ig" target="_blank" class="instagram-link-simple" aria-label="Instagram do Player_01">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogador 2 -->
+                    <div class="player-card-simple active" style="animation-delay: 0.4s;">
+                        <img src="" alt="Artilheiro_X" class="player-image-simple">
+                        <div class="player-info-simple">
+                            <h4 class="player-name-simple">Artilheiro_X</h4>
+                            <a href="https://www.instagram.com/player_ig_2" target="_blank" class="instagram-link-simple" aria-label="Instagram do Artilheiro_X">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogador 3 -->
+                    <div class="player-card-simple active" style="animation-delay: 0.6s;">
+                        <img src="br.png" alt="Defensor_10" class="player-image-simple">
+                        <div class="player-info-simple">
+                            <h4 class="player-name-simple">Atacante</h4>
+                            <a href="https://www.instagram.com/player_ig_3" target="_blank" class="instagram-link-simple" aria-label="Instagram do Defensor_10">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jogador 4 -->
+                    <div class="player-card-simple active" style="animation-delay: 0.8s;">
+                        <img src="mk.jpeg" alt="Markito10_" class="player-image-simple">
+                        <div class="player-info-simple">
+                            <h4 class="player-name-simple">Meia Armador</h4>
+                            <a href="https://www.instagram.com/player_ig_4" target="_blank" class="instagram-link-simple" aria-label="Instagram do Goleiro_99">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="redes" class="section redes-section">
+            <div class="container section-content">
+                <h2 class="section-title animate-fadeIn">🌐 Conecte-se ao Conflito</h2>
+                <p class="section-subtitle animate-fadeIn" style="animation-delay: 0.1s;">Siga-nos em todas as plataformas e faça parte da nossa comunidade.</p>
+
+                <div class="social-grid">
+                    <div class="social-card discord animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <i class="fab fa-discord social-icon" style="color: #5865f2;"></i>
+                        <h4 class="social-title">Discord Oficial</h4>
+                        <p class="social-description">Entre no nosso QG! Conversas sobre tática, recrutamento e a melhor resenha do Pro Clubs.</p>
+                        <a href="https://discord.gg/conflitofc" target="_blank" class="btn btn-primary" style="background: #5865f2;"><i class="fas fa-comments"></i> Entrar no Discord</a>
+                    </div>
+                    <div class="social-card twitch animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fab fa-twitch social-icon" style="color: #9146ff;"></i>
+                        <h4 class="social-title">Twitch - Ao Vivo</h4>
+                        <p class="social-description">Assista aos nossos jogos de liga, treinos e análise tática em tempo real. Não perca a emoção!</p>
+                        <a href="https://twitch.tv/conflitofc" target="_blank" class="btn btn-primary" style="background: #9146ff;"><i class="fas fa-video"></i> Acompanhe</a>
+                    </div>
+                    <div class="social-card instagram animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <i class="fab fa-instagram social-icon" style="background: -webkit-linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <h4 class="social-title">Instagram - Destaques</h4>
+                        <p class="social-description">Melhores momentos, notícias do clube, fotos dos atletas e bastidores das conquistas.</p>
+                        <a href="https://instagram.com/conflitofc" target="_blank" class="btn btn-primary" style="background: linear-gradient(45deg, #f09433, #dc2743);"><i class="fas fa-camera"></i> Seguir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>CONFLITO FC &copy; 2024. Todos os direitos reservados. | Feito com <i class="fas fa-heart footer-heart"></i> pela comunidade de Pro Clubs.</p>
+            <p>Design e Estrutura: Baseados em padrões de UI/UX modernos. Contato: email@exemplo.com</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="recrutamento-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 class="modal-title"><i class="fas fa-fist-raised"></i> Formulário de Recrutamento</h3>
+            <p class="modal-subtitle">Preencha com seus dados para iniciar a avaliação. Apenas os melhores são selecionados.</p>
+            
+            <form id="recrutamento-form">
+                <div class="form-group">
+                    <label for="nome">Nome/Nickname no Jogo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: Player_01">
+                    <p class="form-error">O nome é obrigatório.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="posicao">Posição Principal</label>
+                    <select id="posicao" name="posicao" required>
+                        <option value="">Selecione a Posição</option>
+                        <option value="volante">Volante</option>
+                        <option value="zagueiro">Zagueiro</option>
+                        <option value="lateral">Lateral</option>
+                    </select>
+                    <p class="form-error">A posição é obrigatória.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade</label>
+                    <select id="idade" name="idade" required>
+                        <option value="">Selecione a Idade</option>
+                        <option value="20">20 anos</option>
+                        <option value="21">21 anos</option>
+                        <option value="22">22 anos</option>
+                        <option value="23">23 anos</option>
+                        <option value="24">24 anos</option>
+                        <option value="25">25 anos</option>
+                        <option value="26">26 anos</option>
+                        <option value="27">27 anos</option>
+                        <option value="28">28 anos</option>
+                        <option value="29">29 anos</option>
+                        <option value="30">30 anos</option>
+                        <option value="31">31 anos</option>
+                        <option value="32">32 anos</option>
+                        <option value="33">33 anos</option>
+                        <option value="34">34 anos</option>
+                        <option value="35">35 anos</option>
+                        <option value="36">36 anos</option>
+                        <option value="37">37 anos</option>
+                        <option value="38">38 anos</option>
+                        <option value="39">39 anos</option>
+                        <option value="40">40 anos</option>
+                        <option value="41">41 anos</option>
+                        <option value="42">42 anos</option>
+                        <option value="43">43 anos</option>
+                        <option value="44">44 anos</option>
+                        <option value="45">45 anos</option>
+                        <option value="46">46 anos</option>
+                        <option value="47">47 anos</option>
+                        <option value="48">48 anos</option>
+                        <option value="49">49 anos</option>
+                        <option value="50">50 anos</option>
+                    </select>
+                    <p class="form-error">A idade é obrigatória.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="plataforma">Plataforma</label>
+                    <select id="plataforma" name="plataforma" required>
+                        <option value="">Selecione a Plataforma</option>
+                        <option value="ps5">PS5</option>
+                        <option value="xbox">XBOX</option>
+                        <option value="pc">PC</option>
+                    </select>
+                    <p class="form-error">A plataforma é obrigatória.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="discord">Possui Discord?</label>
+                    <select id="discord" name="discord" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                    <p class="form-error">Esta informação é obrigatória.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="horario">Horário Disponível</label>
+                    <select id="horario" name="horario" required>
+                        <option value="">Selecione o Horário</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                    </select>
+                    <p class="form-error">O horário é obrigatório.</p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar Candidatura
+                </button>
+                
+                <p class="whatsapp-disclaimer">Após o envio, você será direcionado para conversar conosco no WhatsApp.</p>
+            </form>
+            
+            <div id="form-success" style="display: none; text-align: center; margin-top: 1.5rem; color: #10b981;">
+                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                <h4 style="font-family: var(--font-display);">Candidatura Enviada!</h4>
+                <p>Obrigado! Agora você será direcionado para conversar conosco no WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            window.addEventListener('load', () => {
+                preloader.classList.add('hidden');
+            });
+
+            // Typed.js para o efeito de digitação na Hero
+            const typedText = document.getElementById('typed-text');
+            if (typedText) {
+                new Typed('#typed-text', {
+                    strings: [
+                        "CONFLITO FC.", 
+                        "A Elite do Pro Clubs.", 
+                        "Prontos para Vencer."
+                    ],
+                    typeSpeed: 70,
+                    backSpeed: 40,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|',
+                });
+            }
+
+            // Animação de Contadores (Hero Stats)
+            const animateStats = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stats = entry.target.querySelectorAll('.hero-stat-number');
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-count'));
+                            let current = 0;
+                            const increment = Math.ceil(target / 100);
+                            const unit = stat.textContent.includes('%') ? '%' : '';
+
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    current = target;
+                                    clearInterval(timer);
+                                }
+                                stat.textContent = current + unit;
+                            }, 20);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // Observer para seções (Scroll Reveal)
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.section').forEach(section => {
+                sectionObserver.observe(section);
+            });
+            
+            // Ativa o observer para as stats da hero
+            const heroStatsSection = document.querySelector('.hero-stats');
+            if (heroStatsSection) {
+                const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
+                statsObserver.observe(heroStatsSection);
+            }
+
+            // Navbar: Scroll e Active Link
+            const header = document.getElementById('header');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('main section'); 
+            
+            const setActiveLink = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - header.offsetHeight;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                setActiveLink();
+                toggleBackToTop();
+            });
+            
+            // Inicializa o link ativo
+            setActiveLink();
+
+            // Menu Mobile
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.getElementById('nav-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Fecha o menu ao clicar em um link
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Modal de Recrutamento
+            const modal = document.getElementById('recrutamento-modal');
+            const openModalBtns = document.querySelectorAll('.open-modal');
+            const closeModalBtn = modal.querySelector('.close-btn');
+            const form = document.getElementById('recrutamento-form');
+            const successMessage = document.getElementById('form-success');
+
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Validação de Formulário e Integração com WhatsApp
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                const inputs = this.querySelectorAll('input[required], select[required]');
+
+                inputs.forEach(input => {
+                    const errorElement = input.closest('.form-group').querySelector('.form-error');
+                    if (!input.value.trim()) {
+                        input.classList.add('error');
+                        if (errorElement) errorElement.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        input.classList.remove('error');
+                        if (errorElement) errorElement.style.display = 'none';
+                    }
+                });
+
+                if (isValid) {
+                    // Coletar dados do formulário
+                    const nome = document.getElementById('nome').value;
+                    const posicao = document.getElementById('posicao').value;
+                    const idade = document.getElementById('idade').value;
+                    const plataforma = document.getElementById('plataforma').value;
+                    const discord = document.getElementById('discord').value;
+                    const horario = document.getElementById('horario').value;
+                    
+                    // Mapear valores para texto legível
+                    const posicaoText = {
+                        'volante': 'Volante',
+                        'zagueiro': 'Zagueiro',
+                        'lateral': 'Lateral'
+                    }[posicao] || posicao;
+                    
+                    const plataformaText = {
+                        'ps5': 'PS5',
+                        'xbox': 'XBOX',
+                        'pc': 'PC'
+                    }[plataforma] || plataforma;
+                    
+                    const discordText = {
+                        'sim': 'Sim',
+                        'nao': 'Não'
+                    }[discord] || discord;
+                    
+                    // Criar mensagem para WhatsApp
+                    const mensagem = `Olá! Gostaria de me candidatar ao Conflito FC!\n\n` +
+                                   `*Nome/Nickname:* ${nome}\n` +
+                                   `*Posição Principal:* ${posicaoText}\n` +
+                                   `*Idade:* ${idade} anos\n` +
+                                   `*Plataforma:* ${plataformaText}\n` +
+                                   `*Possui Discord:* ${discordText}\n` +
+                                   `*Horário Disponível:* ${horario}\n\n` +
+                                   `Estou interessado em fazer parte da equipe!`;
+                    
+                    // Codificar mensagem para URL
+                    const mensagemCodificada = encodeURIComponent(mensagem);
+                    
+                    // Número do WhatsApp (Brasil)
+                    const numeroWhatsApp = '5551992520046';
+                    
+                    // Criar URL do WhatsApp
+                    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+                    
+                    // Mostrar mensagem de sucesso
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Redirecionar para WhatsApp após 2 segundos
+                    setTimeout(() => {
+                        window.open(urlWhatsApp, '_blank');
+                        modal.style.display = 'none';
+                        form.style.display = 'block';
+                        successMessage.style.display = 'none';
+                        form.reset();
+                    }, 2000);
+                }
+            });
+            
+            // Botão Voltar ao Topo
+            const backToTopBtn = document.getElementById('back-to-top');
+
+            const toggleBackToTop = () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            };
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
