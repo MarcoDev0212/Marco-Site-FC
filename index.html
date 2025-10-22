@@ -1157,8 +1157,14 @@
             
             <form id="recrutamento-form">
                 <div class="form-group">
-                    <label for="nome">Nome/Nickname no Jogo</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Ex: Player_01">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: Digite seu nome! ">
+                    <p class="form-error">O nome é obrigatório.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome">ID/Jogo</label>
+                    <input type="text" id="id" name="id" required placeholder="Ex: Player_01">
                     <p class="form-error">O nome é obrigatório.</p>
                 </div>
                 
@@ -1430,6 +1436,7 @@
                 if (isValid) {
                     // Coletar dados do formulário
                     const nome = document.getElementById('nome').value;
+                    const id = document.getElementById('id').value;
                     const posicao = document.getElementById('posicao').value;
                     const idade = document.getElementById('idade').value;
                     const plataforma = document.getElementById('plataforma').value;
@@ -1456,7 +1463,8 @@
                     
                     // Criar mensagem para WhatsApp
                     const mensagem = `Olá! Gostaria de me candidatar ao Conflito FC!\n\n` +
-                                   `*Nome/Nickname:* ${nome}\n` +
+                                   `*Nome:* ${nome}\n` +
+                                   `*id:* ${id}\n` +
                                    `*Posição Principal:* ${posicaoText}\n` +
                                    `*Idade:* ${idade} anos\n` +
                                    `*Plataforma:* ${plataformaText}\n` +
