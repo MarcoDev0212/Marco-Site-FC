@@ -690,27 +690,24 @@
             color: var(--neutral-900);
             margin-bottom: 1rem;
         }
-        .instagram-link-simple {
+       .instagram-link-simple {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: var(--neutral-100);
-            color: var(--neutral-700);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: var(--white);
             border-radius: 50%;
             font-size: 1.5rem;
             transition: var(--transition);
             text-decoration: none;
             box-shadow: var(--shadow-sm);
-            animation: instagramSpin 3s ease-in-out infinite;
         }
-        .instagram-link-simple:hover, .instagram-link-simple:focus {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: var(--white);
-            transform: scale(1.1) rotate(5deg);
+        .instagram-link-simple:hover,
+        .instagram-link-simple:focus {
+            transform: scale(1.1);
             box-shadow: var(--shadow-md);
-            animation: none;
         }
         /* Redes Section */
         .redes-section { background: var(--gradient-primary); }
@@ -1079,7 +1076,7 @@
                     <div class="player-card-simple active" style="animation-delay: 0.6s;">
                         <img src="br.png" alt="Defensor_10" class="player-image-simple">
                         <div class="player-info-simple">
-                            <h4 class="player-name-simple">Atacante</h4>
+                            <h4 class="player-name-simple">Atacante (ATA)</h4>
                             <a href="https://www.instagram.com/brunobragamonte/" target="_blank" class="instagram-link-simple" aria-label="Instagram do Defensor_10">
                                 <i class="fab fa-instagram"></i>
                             </a>
@@ -1089,7 +1086,7 @@
                      <div class="player-card-simple active" style="animation-delay: 0.8s;">
                         <img src="mk.jpeg" alt="Markito10_" class="player-image-simple">
                         <div class="player-info-simple">
-                            <h4 class="player-name-simple">Meia Armador</h4>
+                            <h4 class="player-name-simple">Meia Armador (MEI)</h4>
                             <a href="https://www.instagram.com/markito0212/" target="_blank" class="instagram-link-simple" aria-label="Instagram do Goleiro_99">
                                 <i class="fab fa-instagram"></i>
                             </a>
